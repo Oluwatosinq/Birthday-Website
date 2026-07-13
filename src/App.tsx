@@ -924,7 +924,7 @@ function App() {
             </div>
 
             <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-              Here is to <span className="gradient-text">Yetu</span>,<br />
+              Here is to <span className="gradient-text">Baby girl</span>,<br />
               <span className="font-script text-3xl md:text-5xl text-gold-200">today and always</span>
             </h2>
 
