@@ -18,10 +18,33 @@ import {
   Eye,
   RotateCcw,
   ArrowRight,
+
 } from 'lucide-react';
 import img1 from './assets/Yetu_13.jpeg'
 import img2 from './assets/Yetu_14.jpeg'
 import img3 from './assets/Yetu_11.jpeg'
+
+import yetu1 from './assets/Yetu_1.jpeg';
+import yetu2 from './assets/Yetu_2.jpeg';
+import yetu3 from './assets/Yetu_3.jpeg';
+import yetu4 from './assets/Yetu_4.jpeg';
+import yetu5 from './assets/Yetu_5.jpeg';
+import yetu6 from './assets/Yetu_6.jpeg';
+import yetu7 from './assets/Yetu_7.jpeg';
+import yetu8 from './assets/Yetu_8.jpeg';
+import yetu9 from './assets/Yetu_9.jpeg';
+import yetu10 from './assets/Yetu_10.jpeg';
+import yetu11 from './assets/Yetu_11.jpeg';
+import yetu12 from './assets/Yetu_12.jpeg';
+import yetu13 from './assets/Yetu_13.jpeg';
+import yetu14 from './assets/Yetu_14.jpeg';
+import yetu15 from './assets/Yetu_15.jpeg';
+import yetu16 from './assets/Yetu_16.jpeg';
+import yetu17 from './assets/Yetu_17.jpeg';
+import yetu18 from './assets/Yetu_18.jpeg';
+
+const row1Images = [yetu1, yetu2, yetu3, yetu4, yetu5, yetu6, yetu7, yetu8, yetu9];
+const row2Images = [yetu10, yetu11, yetu12, yetu13, yetu14, yetu15, yetu16, yetu17, yetu18];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -777,7 +800,7 @@ function App() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/140831/pexels-photo-140831.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src="https://images.pexels.com/photos/30018814/pexels-photo-30018814.jpeg"
                   alt="Birthday cake"
                   className="w-full aspect-square object-cover"
                 />
@@ -803,6 +826,64 @@ function App() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Section 4.5: Memory Lane Photo Marquee ─── */}
+      <section className="relative py-20 overflow-hidden" style={{ background: '#0D1642' }}>
+        {/* Background Glows */}
+        <div className="absolute w-[400px] h-[400px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #FFD54F 0%, transparent 70%)', top: '10%', left: '10%' }} />
+        <div className="absolute w-[400px] h-[400px] rounded-full opacity-20 blur-3xl pointer-events-none" style={{ background: 'radial-gradient(circle, #FF8FA3 0%, transparent 70%)', bottom: '10%', right: '10%' }} />
+
+        <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-10">
+          <span className="font-script text-gold-300 text-2xl">Capture the Moments</span>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-white mt-2 mb-4">
+            Our Memory Lane
+          </h2>
+          <p className="text-white/50 max-w-md mx-auto">
+            A glimpse into the beautiful smiles, laughter, and memories we've shared.
+          </p>
+        </div>
+
+        {/* Marquee Wrapper */}
+        <div className="relative flex flex-col gap-6 md:gap-8 overflow-hidden select-none">
+
+          {/* Top Row: Scrolls Right */}
+          <div className="flex overflow-hidden w-full group">
+            <div className="flex gap-4 md:gap-6 shrink-0 animate-marquee-right group-hover:[animation-play-state:paused] pr-4 md:pr-6">
+              {row1Images.map((img, i) => (
+                <div key={i} className="relative w-40 h-40 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-105 transition-all duration-500 ease-out cursor-pointer flex-shrink-0">
+                  <img src={img} alt={`Yetu row1-${i}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-4 md:gap-6 shrink-0 animate-marquee-right group-hover:[animation-play-state:paused] pr-4 md:pr-6" aria-hidden="true">
+              {row1Images.map((img, i) => (
+                <div key={`dup1-${i}`} className="relative w-40 h-40 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(255,215,0,0.5)] hover:scale-105 transition-all duration-500 ease-out cursor-pointer flex-shrink-0">
+                  <img src={img} alt={`Yetu row1-${i}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Row: Scrolls Left */}
+          <div className="flex overflow-hidden w-full group">
+            <div className="flex gap-4 md:gap-6 shrink-0 animate-marquee-left group-hover:[animation-play-state:paused] pr-4 md:pr-6">
+              {row2Images.map((img, i) => (
+                <div key={i} className="relative w-40 h-40 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(255,107,133,0.5)] hover:scale-105 transition-all duration-500 ease-out cursor-pointer flex-shrink-0">
+                  <img src={img} alt={`Yetu row2-${i}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-4 md:gap-6 shrink-0 animate-marquee-left group-hover:[animation-play-state:paused] pr-4 md:pr-6" aria-hidden="true">
+              {row2Images.map((img, i) => (
+                <div key={`dup2-${i}`} className="relative w-40 h-40 md:w-56 md:h-56 rounded-3xl overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(255,107,133,0.5)] hover:scale-105 transition-all duration-500 ease-out cursor-pointer flex-shrink-0">
+                  <img src={img} alt={`Yetu row2-${i}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
