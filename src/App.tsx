@@ -170,7 +170,7 @@ function PresentBox({ onOpen }: { onOpen: () => void }) {
 
     // Box shakes then opens
     gsap.to(boxRef.current, {
-      rotateZ: [0, -5, 5, -3, 3, 0],
+      rotateZ: [0, -5, 5, -3, 3, 0] as any,
       duration: 0.4,
       ease: 'power2.inOut',
       onComplete: () => {
@@ -296,7 +296,6 @@ function StoryCard({
   subtitle,
   icon,
   iconBg,
-  iconColor,
   label,
   labelColor,
   body,
@@ -308,7 +307,6 @@ function StoryCard({
   subtitle: string;
   icon: React.ReactNode;
   iconBg: string;
-  iconColor: string;
   label: string;
   labelColor: string;
   body: string;
@@ -582,7 +580,6 @@ function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isLoaded, setIsLoaded] = useState(false);
   const [showSurprise, setShowSurprise] = useState(false);
-  const [presentOpened, setPresentOpened] = useState(false);
   const [wishText, setWishText] = useState('');
   const [wishes, setWishes] = useState<Wish[]>([]);
   const [showWishes, setShowWishes] = useState(false);
@@ -632,6 +629,13 @@ function App() {
   /* Send wish */
   const sendWish = async () => {
     if (!wishText.trim()) return;
+    const newWish: Wish = {
+      id: Math.random().toString(36).substr(2, 9),
+      message: wishText.trim(),
+      sender_name: 'Someone who loves you',
+      created_at: new Date().toISOString()
+    };
+    setWishes((prev) => [newWish, ...prev]);
     setWishSent(true);
     setWishText('');
     if (shootingStarContainerRef.current) {
@@ -652,7 +656,6 @@ function App() {
       subtitle: 'Golden warmth',
       icon: <Sun className="w-5 h-5 text-rose-500" />,
       iconBg: 'bg-rose-100',
-      iconColor: 'text-rose-500',
       label: "You're a Light",
       labelColor: 'text-rose-400',
       body: 'There is a warmth about you that makes everyone feel at home. Your laughter is the melody that turns ordinary days into celebrations. You do not just light up spaces — you light up hearts.',
@@ -675,7 +678,6 @@ function App() {
       subtitle: 'Endless love',
       icon: <Heart className="w-5 h-5 text-gold-600" fill="currentColor" />,
       iconBg: 'bg-gold-100',
-      iconColor: 'text-gold-600',
       label: 'Your Heart',
       labelColor: 'text-gold-600',
       body: 'The way you care for others is nothing short of magic, Yetu. You give so much of yourself, and today is about giving back to you. May this year bring you all the love you so generously share with the world.',

@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/Birthday-thingy/',
+  base: process.env.VERCEL ? '/' : '/Birthday-thingy/',
 });
